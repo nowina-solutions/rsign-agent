@@ -1,0 +1,23 @@
+<configuration scan="true" scanPeriod="600 seconds">
+
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>agent.log</file>
+		<append>true</append>
+		<immediateFlush>true</immediateFlush>
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+
+	<logger name="org.springframework" level="WARN" />
+	<logger name="org.springframework.web" level="WARN" />
+
+	<logger name="lu.nowina" level="INFO" />
+
+	<root level="INFO">
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>

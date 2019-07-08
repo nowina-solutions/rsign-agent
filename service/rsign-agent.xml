@@ -1,0 +1,14 @@
+<configuration>
+  
+  <!-- ID of the service. It should be unique accross the Windows system-->
+  <id>rsign-agent</id>
+  <!-- Display name of the service -->
+  <name>RSign Agent</name>
+  <!-- Service description -->
+  <description>Manages signature with RSign</description>
+  
+  <!-- Path to the executable, which should be started -->
+  <executable>%BASE%\jdk-12.0.1+12-jre\bin\javaw.exe</executable>
+  <arguments>-Xrs -Xmx128m -jar "%BASE%\rsign-agent.jar"</arguments>
+
+</configuration>

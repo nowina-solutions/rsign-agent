@@ -1,0 +1,30 @@
+<project name="rsign-agent" default="default">
+
+	<target name="default" depends="jre,winsw">
+		<mkdir dir="target/zip" />
+		<unzip dest="target/zip" src="target/jre.zip">
+		</unzip>
+		<copy todir="target/zip">
+			<fileset dir="service" />
+			<fileset dir=".">
+				<include name="README.md" />
+				<include name="LICENSE" />
+			</fileset>
+			<fileset dir="target">
+				<include name="rsign-agent.jar" />
+				<include name="rsign-agent.exe" />
+			</fileset>
+		</copy>
+		<zip destfile="target/rsign-agent.zip" basedir="target/zip">
+		</zip>
+	</target>
+
+	<target name="jre">
+		<get src="https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/download/jdk-12.0.1%2B12/OpenJDK12U-jre_x64_windows_hotspot_12.0.1_12.zip" dest="target/jre.zip" />
+	</target>
+
+	<target name="winsw">
+		<get src="https://github.com/kohsuke/winsw/releases/download/winsw-v2.2.0/WinSW.NET4.exe" dest="target/rsign-agent.exe" />
+	</target>
+
+</project>
